@@ -327,7 +327,6 @@ export default class App extends Component {
             <SettingsIcon onClick={this.openModal} className="mobile-toggle" />
           </h2>
           <form
-            method="post"
             netlify
             name="new-todo"
             className="todo-create-wrapper"
