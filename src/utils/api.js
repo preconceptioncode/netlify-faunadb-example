@@ -1,17 +1,10 @@
-const encode = data => {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
-};
-
 /* Api methods to call /functions */
 
 const create = data => {
-  return fetch("/.netlify/functions/todos-create", {
-    // body: JSON.stringify(data),
+  return fetch("https://tntbhn1sdhd.SANDBOX.verygoodproxy.com/post", {
     method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: encode({ "form-name": "todo", data })
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ account_number: "ACC00000000000000000" })
   }).then(response => {
     return response.json();
   });
