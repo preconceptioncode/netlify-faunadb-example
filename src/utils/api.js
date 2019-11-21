@@ -1,30 +1,16 @@
-import axios from "axios";
-
 /* Api methods to call /functions */
 
 const create = data => {
-  console.log(data);
-  return axios.post(
-    "https://tntbhn1sdhd.SANDBOX.verygoodproxy.com/post",
-    { data },
+  return fetch(
+    "https://tntbhn1sdhd.SANDBOX.verygoodproxy.com/.netlify/functions/todos-create",
     {
-      headers: {
-        "Content-type": "application/json",
-        "Access-Control-Allow-Methods": "GET, PUT, POST, DELETE, OPTIONS",
-        "Access-Control-Allow-Headers":
-          "X-Requested-With, Content-type, Accept, X-Access-Token, X-Key",
-        "Access-Control-Allow-Origin": "*"
-      }
+      body: JSON.stringify(data),
+      method: "POST",
+      headers: { "Content-type": "application/json" }
     }
-  );
-  return fetch("https://tntbhn1sdhd.SANDBOX.verygoodproxy.com/post", {
-    body: JSON.stringify({ account_number: "1234000" }),
-    mode: "no-cors",
-    method: "POST",
-    headers: {
-      "Content-type": "application/json"
-    }
-  }).then(response => response.json());
+  ).then(response => {
+    return response.json();
+  });
 };
 
 const readAll = () => {

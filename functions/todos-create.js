@@ -23,7 +23,7 @@ exports.handler = async (event, context) => {
       /* Success! return the response with statusCode 200 */
       return {
         statusCode: 200,
-        headers: { "Access-Control-Allow-Origin": "*.verygoodproxy.com" },
+        headers: { "Access-Control-Allow-Origin": "*" },
         body: JSON.stringify(response)
       };
     })
