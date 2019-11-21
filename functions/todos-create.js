@@ -23,7 +23,12 @@ exports.handler = async (event, context) => {
       /* Success! return the response with statusCode 200 */
       return {
         statusCode: 200,
-        headers: { "Access-Control-Allow-Origin": "*" },
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods:":
+            "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+          "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"
+        },
         body: JSON.stringify(response)
       };
     })
