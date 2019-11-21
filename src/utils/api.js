@@ -1,17 +1,30 @@
+import axios from "axios";
+
 /* Api methods to call /functions */
 
 const create = data => {
   console.log(data);
-  return fetch("https://tntbhn1sdhd.SANDBOX.verygoodproxy.com/", {
-    body: JSON.stringify(data),
-    method: "POST",
+  return axios.post(
+    "https://tntbhn1sdhd.SANDBOX.verygoodproxy.com/post",
+    { data },
+    {
+      headers: {
+        "Content-type": "application/json",
+        "Access-Control-Allow-Methods": "GET, PUT, POST, DELETE, OPTIONS",
+        "Access-Control-Allow-Headers":
+          "X-Requested-With, Content-type, Accept, X-Access-Token, X-Key",
+        "Access-Control-Allow-Origin": "*"
+      }
+    }
+  );
+  return fetch("https://tntbhn1sdhd.SANDBOX.verygoodproxy.com/post", {
+    body: JSON.stringify({ account_number: "1234000" }),
     mode: "no-cors",
+    method: "POST",
     headers: {
       "Content-type": "application/json"
     }
-  }).then(response => {
-    return response.json();
-  });
+  }).then(response => response.json());
 };
 
 const readAll = () => {
