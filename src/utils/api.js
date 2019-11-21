@@ -1,18 +1,17 @@
 /* Api methods to call /functions */
-import axios from "axios";
 
 const create = data => {
-  return axios
-    .post(
-      "https://tntbhn1sdhd.SANDBOX.verygoodproxy.com/post",
-      {
-        data
-      },
-      {
-        headers: { "Content-type": "application/json" }
-      }
-    )
-    .then(response => response.data);
+  console.log(data);
+  return fetch("https://tntbhn1sdhd.SANDBOX.verygoodproxy.com/", {
+    body: JSON.stringify(data),
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-type": "application/json"
+    }
+  }).then(response => {
+    return response.json();
+  });
 };
 
 const readAll = () => {
