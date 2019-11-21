@@ -1,13 +1,18 @@
 /* Api methods to call /functions */
+import axios from "axios";
 
 const create = data => {
-  return fetch("https://tntbhn1sdhd.SANDBOX.verygoodproxy.com/post", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ account_number: "ACC00000000000000000" })
-  }).then(response => {
-    return response.json();
-  });
+  return axios
+    .post(
+      "https://tntbhn1sdhd.SANDBOX.verygoodproxy.com/post",
+      {
+        data
+      },
+      {
+        headers: { "Content-type": "application/json" }
+      }
+    )
+    .then(response => response.data);
 };
 
 const readAll = () => {
