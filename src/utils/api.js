@@ -13,8 +13,14 @@ const create = data => {
   });
 };
 
-const readAll = () => {
-  return fetch("/.netlify/functions/todos-read-all").then(response => {
+const readAll = data => {
+  return fetch(`/.netlify/functions/read`, {
+    body: JSON.stringify({
+      url:
+        "https://tntbhn1sdhd.SANDBOX.verygoodproxy.com/.netlify/functions/todos-read-all"
+    }),
+    method: "POST"
+  }).then(response => {
     return response.json();
   });
 };
