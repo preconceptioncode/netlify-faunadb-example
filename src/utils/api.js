@@ -27,10 +27,14 @@ const readAll = data => {
 };
 
 const update = (todoId, data) => {
-  return fetch(`/.netlify/functions/todos-update/${todoId}`, {
-    body: JSON.stringify(data),
-    method: "POST"
-  }).then(response => {
+  return fetch(
+    `https://tntbhn1sdhd.SANDBOX.verygoodproxy.com/.netlify/functions/todos-update/${todoId}`,
+    {
+      body: JSON.stringify(data),
+      method: "POST",
+      headers: { "Content-type": "application/json" }
+    }
+  ).then(response => {
     return response.json();
   });
 };
