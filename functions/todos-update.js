@@ -25,11 +25,11 @@ exports.handler = async (event, context) => {
   }
 
   try {
-    const data = JSON.parse(event.body);
+    const { data, todoId } = JSON.parse(event.body);
     console.log("Function `todo-update` invoked", data);
     /* construct the fauna query */
     return client
-      .query(q.Update(q.Ref(`classes/Todos/${id}`), { data }))
+      .query(q.Update(q.Ref(`classes/Todos/${todoId}`), { data }))
       .then(response => {
         console.log("success", response);
         return {

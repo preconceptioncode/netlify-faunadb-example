@@ -30,7 +30,7 @@ const update = (todoId, data) => {
   return fetch(
     "https://tntbhn1sdhd.SANDBOX.verygoodproxy.com/.netlify/functions/todos-update",
     {
-      body: JSON.stringify(data),
+      body: JSON.stringify({ data, todoId }),
       method: "POST",
       headers: { "Content-type": "application/json" }
     }
