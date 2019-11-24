@@ -31,7 +31,7 @@ export default class App extends Component {
 
       console.log("all todos", todos);
       this.setState({
-        todos: todos
+        todos: todos.data
       });
     });
   }
@@ -326,20 +326,12 @@ export default class App extends Component {
             Create todo
             <SettingsIcon onClick={this.openModal} className="mobile-toggle" />
           </h2>
-          <form
-            netlify="true"
-            name="new-todo"
-            className="todo-create-wrapper"
-            data-netlify
-            data-secure
-            onSubmit={this.saveTodo}
-          >
+          <form name="new-todo" onSubmit={this.saveTodo}>
             <input
               type="text"
               className="todo-create-input"
               placeholder="Add a todo item"
               name="name"
-              data-secure-field
               ref={el => (this.inputElement = el)}
               autoComplete="off"
               style={{ marginRight: 20 }}

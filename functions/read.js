@@ -24,11 +24,7 @@ exports.handler = async event => {
     return {
       statusCode: 200,
       body: JSON.stringify({
-        headers,
-        data: response.data,
-        status: "succeeded",
-        connected: true,
-        authenticated: true
+        data: response.data
       })
     };
   } catch (error) {
@@ -37,11 +33,7 @@ exports.handler = async event => {
     return {
       statusCode: 200,
       body: JSON.stringify({
-        headers,
-        error,
-        connected: true,
-        authenticated: false,
-        status: "failed"
+        error
       }) // Could be a custom message or object i.e. JSON.stringify(err)
     };
   }
