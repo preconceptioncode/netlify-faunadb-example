@@ -22,7 +22,7 @@ exports.handler = async event => {
     return {
       statusCode: 200,
       body: JSON.stringify({
-        header,
+        headers,
         data: response.data,
         status: "succeeded",
         connected: true,
