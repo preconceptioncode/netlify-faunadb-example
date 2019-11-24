@@ -1,6 +1,12 @@
 const faunadb = require("faunadb");
 const getId = require("./utils/getId");
 
+const headers = {
+  "Access-Control-Allow-Origin": "Content-Type",
+  "Access-Control-Allow-Headers": "*",
+  "Content-Type": "application/json"
+};
+
 const q = faunadb.query;
 const client = new faunadb.Client({
   secret: process.env.FAUNADB_SERVER_SECRET
@@ -15,6 +21,7 @@ exports.handler = (event, context) => {
     .then(response => {
       console.log("success", response);
       return {
+        headers,
         statusCode: 200,
         body: JSON.stringify(response)
       };
