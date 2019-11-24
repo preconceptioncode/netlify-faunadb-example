@@ -15,7 +15,6 @@ const client = new faunadb.Client({
 
 /* export our lambda function as named "handler" export */
 exports.handler = async (event, context) => {
-  console.log("test");
   if (event.httpMethod !== "POST" || !event.body) {
     return {
       headers,
