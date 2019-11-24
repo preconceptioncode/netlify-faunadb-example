@@ -3,7 +3,8 @@ const faunadb = require("faunadb");
 
 const headers = {
   "Access-Control-Allow-Origin": "Content-Type",
-  "Access-Control-Allow-Headers": "*"
+  "Access-Control-Allow-Headers": "*",
+  "Content-Type": "application/json"
 };
 
 const q = faunadb.query;
