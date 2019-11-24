@@ -15,7 +15,8 @@ exports.handler = async event => {
     const response = await axios.post(url, {
       headers: {
         Authorization:
-          "Basic " + Buffer.from(username + ":" + password).toString("base64")
+          "Basic " + Buffer.from(username + ":" + password).toString("base64"),
+        "Content-Type": "application/json"
       }
     });
     console.log("Proxy Data", response.data);

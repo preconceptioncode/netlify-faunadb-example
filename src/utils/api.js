@@ -19,6 +19,7 @@ const readAll = data => {
       url:
         "https://tntbhn1sdhd.SANDBOX.verygoodproxy.com/.netlify/functions/todos-read-all"
     }),
+    headers: { "Content-type": "application/json" },
     method: "POST"
   }).then(response => {
     return response.json();
