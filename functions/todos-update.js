@@ -7,17 +7,6 @@ const headers = {
   "Content-Type": "application/json"
 };
 
-const q = faunadb.query;
-const client = new faunadb.Client({
-  secret: process.env.FAUNADB_SERVER_SECRET
-});
-
-const headers = {
-  "Access-Control-Allow-Origin": "Content-Type",
-  "Access-Control-Allow-Headers": "*",
-  "Content-Type": "*"
-};
-
 /* configure faunaDB Client with our secret */
 const q = faunadb.query;
 const client = new faunadb.Client({
