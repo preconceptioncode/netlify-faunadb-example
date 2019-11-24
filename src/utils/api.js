@@ -28,7 +28,7 @@ const readAll = data => {
 
 const update = (todoId, data) => {
   return fetch(
-    `https://tntbhn1sdhd.SANDBOX.verygoodproxy.com/.netlify/functions/todos-update/${todoId}`,
+    "https://tntbhn1sdhd.SANDBOX.verygoodproxy.com/.netlify/functions/todos-update",
     {
       body: JSON.stringify(data),
       method: "POST",
