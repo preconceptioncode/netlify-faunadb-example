@@ -12,7 +12,7 @@ exports.handler = async event => {
   const data = JSON.parse(event.body);
   const { url } = data;
   try {
-    const response = await axios.get(url, {
+    const response = await axios.post(url, {
       headers: {
         Authorization:
           "Basic " + Buffer.from(username + ":" + password).toString("base64")
