@@ -15,7 +15,7 @@ const client = new faunadb.Client({
 const headers = {
   "Access-Control-Allow-Origin": "Content-Type",
   "Access-Control-Allow-Headers": "*",
-  "Content-Type": "application/json"
+  "Content-Type": "*"
 };
 
 /* configure faunaDB Client with our secret */
@@ -26,6 +26,7 @@ const client = new faunadb.Client({
 
 /* export our lambda function as named "handler" export */
 exports.handler = async (event, context) => {
+  console.log("test");
   if (event.httpMethod !== "POST" || !event.body) {
     return {
       headers,
