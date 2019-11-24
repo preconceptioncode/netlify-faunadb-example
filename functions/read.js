@@ -5,7 +5,8 @@ const password = "34d671c5-414d-42c6-89a8-d751c04e57a3";
 
 const headers = {
   "Access-Control-Allow-Origin": "Content-Type",
-  "Access-Control-Allow-Headers": "*"
+  "Access-Control-Allow-Headers": "*",
+  "Content-Type": "application/json"
 };
 
 exports.handler = async event => {
