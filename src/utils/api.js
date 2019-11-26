@@ -1,61 +1,56 @@
 /* Api methods to call /functions */
 
-const create = data => {
-  return fetch(
+const create = async data => {
+  const response = await fetch(
     "https://tntbhn1sdhd.SANDBOX.verygoodproxy.com/.netlify/functions/todos-create",
     {
       body: JSON.stringify(data),
       method: "POST",
       headers: { "Content-type": "application/json" }
     }
-  ).then(response => {
-    return response.json();
-  });
+  );
+  return await response.json();
 };
 
-const readAll = data => {
-  return fetch(`/.netlify/functions/read`, {
+const readAll = async () => {
+  const response = await fetch(`/.netlify/functions/read`, {
     body: JSON.stringify({
       url:
         "https://tntbhn1sdhd.SANDBOX.verygoodproxy.com/.netlify/functions/todos-read-all"
     }),
     headers: { "Content-type": "application/json" },
     method: "POST"
-  }).then(response => {
-    return response.json();
   });
+  return await response.json();
 };
 
-const update = (todoId, data) => {
-  return fetch(
+const update = async (todoId, data) => {
+  const response = await fetch(
     "https://tntbhn1sdhd.SANDBOX.verygoodproxy.com/.netlify/functions/todos-update",
     {
       body: JSON.stringify({ data, todoId }),
       method: "POST",
       headers: { "Content-type": "application/json" }
     }
-  ).then(response => {
-    return response.json();
-  });
+  );
+  return await response.json();
 };
 
-const deleteTodo = todoId => {
-  return fetch(`/.netlify/functions/todos-delete/${todoId}`, {
+const deleteTodo = async todoId => {
+  const response = await fetch(`/.netlify/functions/todos-delete/${todoId}`, {
     method: "POST"
-  }).then(response => {
-    return response.json();
   });
+  return await response.json();
 };
 
-const batchDeleteTodo = todoIds => {
-  return fetch(`/.netlify/functions/todos-delete-batch`, {
+const batchDeleteTodo = async todoIds => {
+  const response = await fetch(`/.netlify/functions/todos-delete-batch`, {
     body: JSON.stringify({
       ids: todoIds
     }),
     method: "POST"
-  }).then(response => {
-    return response.json();
   });
+  return await response.json();
 };
 
 export default {

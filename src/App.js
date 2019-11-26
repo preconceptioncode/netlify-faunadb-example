@@ -322,10 +322,7 @@ export default class App extends Component {
         <AppHeader />
 
         <div className="todo-list">
-          <h2>
-            Create todo
-            <SettingsIcon onClick={this.openModal} className="mobile-toggle" />
-          </h2>
+          <h2>Create todo</h2>
           <form name="new-todo" onSubmit={this.saveTodo}>
             <input
               type="text"
