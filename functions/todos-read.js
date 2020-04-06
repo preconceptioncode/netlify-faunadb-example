@@ -4,12 +4,13 @@ const getId = require("./utils/getId");
 
 const headers = {
   "Access-Control-Allow-Origin": "Content-Type",
-  "Access-Control-Allow-Headers": "*"
+  "Access-Control-Allow-Headers": "*",
+  "Content-Type": "application/json",
 };
 
 const q = faunadb.query;
 const client = new faunadb.Client({
-  secret: process.env.FAUNADB_SERVER_SECRET
+  secret: process.env.FAUNADB_SERVER_SECRET,
 });
 
 exports.handler = (event, context) => {
@@ -17,20 +18,20 @@ exports.handler = (event, context) => {
   console.log(`Function 'todo-read' invoked. Read id: ${id}`);
   return client
     .query(q.Get(q.Ref(`classes/Todos/${id}`)))
-    .then(response => {
+    .then((response) => {
       console.log("success", response);
       return {
         headers,
         statusCode: 200,
-        body: JSON.stringify(response)
+        body: JSON.stringify(response),
       };
     })
-    .catch(error => {
+    .catch((error) => {
       console.log("error", error);
       return {
         headers,
         statusCode: 400,
-        body: JSON.stringify(error)
+        body: JSON.stringify(error),
       };
     });
 };
